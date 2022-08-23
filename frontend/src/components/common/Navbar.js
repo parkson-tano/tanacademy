@@ -7,7 +7,7 @@ function Navbar() {
        <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light py-3">
         <div className="container-fluid">
-          <a className="navbar-brand font-bold" href="#">
+          <a className="navbar-brand font-bold" href="/">
             TANACADEMY
           </a>
           <button

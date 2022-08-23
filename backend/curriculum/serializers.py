@@ -7,7 +7,7 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class ChapterSerializer(serializers.ModelSerializer):
-
+    lesson = serializers.StringRelatedField(many=True)
     class Meta:
         model = Chapter
         fields = "__all__"

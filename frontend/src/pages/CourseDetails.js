@@ -9,6 +9,8 @@ import {
   Link,
   useParams
 } from "react-router-dom";
+import Curriculum from "../components/course/Curriculum";
+import DetailCard from "../components/course/DetailCard";
 
 function CourseDetails() {
     const [course, setCourse] = useState("");
@@ -32,8 +34,18 @@ function CourseDetails() {
         description={course.description}
         amount={course.amount}
       />
+      <div className="row px-5 py-3 mt-5">
+        <p className="text-center text-2xl font-bold uppercase p-3">
+          Course Curriculum
+        </p>
+        <div className="col col-md-8 col-sm-12 mt-5">
+          <Curriculum />
+        </div>
+        <div className="col col-md-4 col-sm-12 mt-5">
+          <DetailCard />
+        </div>
+      </div>
     </div>
-
   );
 }
 

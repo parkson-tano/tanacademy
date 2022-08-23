@@ -1,9 +1,13 @@
 import React from 'react'
+import Chapter from './Chapter';
 
 function Curriculum() {
+
   return (
-    <div>Curriculum</div>
-  )
+    <div>
+      <Chapter />
+    </div>
+  );
 }
 
 export default Curriculum
