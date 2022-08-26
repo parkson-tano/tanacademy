@@ -1,39 +1,92 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Input from "@mui/material/Input";
+import FilledInput from "@mui/material/FilledInput";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Button } from "@mui/material";
+import { Typography } from "@mui/material";
+
+
+import React, {useState} from 'react'
+
 
 function Login() {
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (prop) => (event) => {
+    setCredentials({ ...credentials, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setCredentials({
+      ...credentials,
+      showPassword: !credentials.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
-    <div className="col-md-6 col-md-offset-3">
-      <form name="form">
-        <div
-          className={
-            "form-group"
+    <>
+      <FormControl fullWidth sx={{ m: 1 }}>
+        <InputLabel htmlFor="outlined-adornment-amount">Email</InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-amount"
+          value={credentials.email}
+          onChange={handleChange("email")}
+          label="Amount"
+        />
+      </FormControl>
+      <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
+        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-password"
+          type={credentials.showPassword ? "text" : "password"}
+          value={credentials.password}
+          onChange={handleChange("password")}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {credentials.showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
           }
-        >
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            name="username"
-          />
-        </div>
-        <div
-          className= "form-group"
-          
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            name="password"
-          />
-        </div>
-        <div className="form-group">
-          <button className="btn btn-primary">Login</button>
-          
-        </div>
-      </form>
-    </div>
+          label="Password"
+        />
+      </FormControl>
+      <Typography align="right" color="primary">
+        <Link to="/auth/forgorpassword">Forgot Password?</Link>
+      </Typography>
+      <Button
+        variant="contained"
+        color="success"
+        size="large"
+        fullWidth
+        sx={{ m: 1 }}
+      >
+        Login
+      </Button>
+      <Typography align="left" color="primary" sx={{ m: 1 }}>
+        <Link to="/auth/signup">Create Account</Link>
+      </Typography>
+    </>
   );
 }
 

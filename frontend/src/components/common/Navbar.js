@@ -38,7 +38,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="transparent">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -113,7 +113,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            TANACADEMY
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {/* {pages.map((page) => (
@@ -132,9 +132,9 @@ const ResponsiveAppBar = () => {
             </Button>
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{ my: 2, display: "block" }}
             >
-              <a href="#courses" className="hover:text-slate-100">
+              <a href="#courses" className="hover:text-slate-900">
                 All Courses
               </a>
             </Button>
