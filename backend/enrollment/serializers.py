@@ -1,8 +1,13 @@
 from dataclasses import field
 from rest_framework import serializers
+from curriculum.serializers import CourseSerializer
 from .models import *
 
-
+class EnrollmentSerializer(serializers.ModelSerializer):
+    course = CourseSerializer(read_only=True)
+    class Meta:
+        model = Enrollment
+        fields = "__all__"
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,7 +19,3 @@ class PaymentMethodSerializer(serializers.ModelSerializer):
         model = PaymentMethod
         fields = "__all__"
 
-class EnrollmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Enrollment
-        fields = "__all__"

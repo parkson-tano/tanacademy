@@ -74,7 +74,7 @@ function Chapter() {
                   }}
                 >
                   <MissedVideoCallTwoToneIcon />
-                  {less}
+                  {less.title}
                 </Typography>
               </AccordionDetails>
             );

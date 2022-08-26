@@ -24,7 +24,7 @@ class Course(models.Model):
         return self.title
 
 class Chapter(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='chapter')
     chapter_number = models.IntegerField()
     title = models.CharField(max_length=256)
     slug = AutoSlugField(populate_from = 'title', unique_with='course')
@@ -49,7 +49,7 @@ class Lesson(models.Model):
         return self.title
     
 class Curriculum(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='curriculum')
     item = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
 

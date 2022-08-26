@@ -10,8 +10,8 @@ class PaymentMethod(models.Model):
         return self.title
 
 class Enrollment(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True, related_name='course')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     price = models.FloatField(null=True, blank=True)
     phone = models.CharField(max_length=40, blank=True, null=True)
     payment_method = models.ForeignKey(PaymentMethod, null=True, on_delete=models.SET_NULL)
@@ -27,12 +27,10 @@ class Payment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.IntegerField(null=True, blank=True)
     enrollment = models.ForeignKey(
-        Enrollment, null=True, blank=True, on_delete=models.CASCADE)
+        Enrollment, null=True, blank=True, on_delete=models.CASCADE, related_name='enrollment')
     is_complete = models.BooleanField(default=False)
     payment_method = models.ForeignKey(PaymentMethod, null=True, on_delete=models.SET_NULL)
     phone_number = models.CharField(max_length=15)
-    withdrawal = models.BooleanField(default=False)
-    reason_payment = models.CharField(max_length=30, null=True, blank=True)
     reference = models.CharField(null=True, blank=True, max_length=100)
     status = models.CharField(null=True, blank=True, max_length=100)
     reason = models.CharField(null=True, blank=True, max_length=100)

@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import *
 from .serializers import *
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import status, permissions
+from rest_framework.views import APIView
 # Create your views here.
 
 class PaymentMethodCreateViewAPI(generics.ListCreateAPIView):
@@ -27,3 +30,9 @@ class EnrollmentCreateViewAPI(generics.ListCreateAPIView):
 class EnrollmentApiView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+
+class UserEnrollment(generics.ListAPIView):
+    serializer_class = EnrollmentSerializer
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        return Enrollment.objects.filter(user = user_id)

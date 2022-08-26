@@ -13,5 +13,7 @@ urlpatterns = [
     path("", EnrollmentCreateViewAPI.as_view()),
     path("<int:pk>", EnrollmentApiView.as_view(), name='paymentmethod_api'),
     path("<int:pk>/", EnrollmentApiView.as_view()),
+    path("mycourse/<int:user_id>/", UserEnrollment.as_view()),
+
     
 ]
