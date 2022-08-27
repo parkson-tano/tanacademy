@@ -20,11 +20,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path="" element={<HomePage />} />
-        <Route path="/course/:id/:slug" element={<CourseDetails />} />
-        <Route path="auth/login" element={<LoginPage />} />
-        <Route path="auth/signup" element={<SignUpPage />} />
-        <Route path="mycourse/" element={<EnrollmentPage/>} />
+        <Route exact path="" element={<HomePage />} />
+        <Route exact path="/course/:id/:slug" element={<CourseDetails />} />
+        <Route exact path="auth/login" element={<LoginPage />} />
+        <Route exact path="auth/signup" element={<SignUpPage />} />
+        <Route exact path="mycourse/" element={<EnrollmentPage />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </Router>
   );

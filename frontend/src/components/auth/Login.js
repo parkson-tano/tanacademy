@@ -38,8 +38,14 @@ function Login() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const handleSubmit = (event) => {
+    console.log({credentials})
+    event.preventDefault();
+  }
+
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <FormControl fullWidth sx={{ m: 1 }}>
         <InputLabel htmlFor="outlined-adornment-amount">Email</InputLabel>
         <OutlinedInput
@@ -47,6 +53,7 @@ function Login() {
           value={credentials.email}
           onChange={handleChange("email")}
           label="Amount"
+          required = {true}
         />
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
@@ -56,6 +63,7 @@ function Login() {
           type={credentials.showPassword ? "text" : "password"}
           value={credentials.password}
           onChange={handleChange("password")}
+          required = {true}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -80,13 +88,14 @@ function Login() {
         size="large"
         fullWidth
         sx={{ m: 1 }}
+        type="submit"
       >
         Login
       </Button>
       <Typography align="left" color="primary" sx={{ m: 1 }}>
         <Link to="/auth/signup">Create Account</Link>
       </Typography>
-    </>
+    </form>
   );
 }
 

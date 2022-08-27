@@ -14,6 +14,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
+import { TrendingUpRounded } from '@material-ui/icons';
 
 
 function Signup() {
@@ -40,8 +41,13 @@ function Signup() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const handleSubmit = (event) => {
+    console.log({ credentials });
+    event.preventDefault();
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <FormControl fullWidth sx={{ m: 1 }}>
         <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
         <OutlinedInput
@@ -49,6 +55,7 @@ function Signup() {
           value={credentials.username}
           onChange={handleChange("username")}
           label="Username"
+          required={true}
         />
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }}>
@@ -58,24 +65,31 @@ function Signup() {
           value={credentials.email}
           onChange={handleChange("email")}
           label="Email"
+          required={true}
         />
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }}>
-        <InputLabel htmlFor="outlined-adornment-first_name">First Name</InputLabel>
+        <InputLabel htmlFor="outlined-adornment-first_name">
+          First Name
+        </InputLabel>
         <OutlinedInput
           id="outlined-adornment-frist_name"
           value={credentials.first_name}
           onChange={handleChange("first_name")}
           label="First Name"
+          required={true}
         />
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }}>
-        <InputLabel htmlFor="outlined-adornment-last_name">Last Name</InputLabel>
+        <InputLabel htmlFor="outlined-adornment-last_name">
+          Last Name
+        </InputLabel>
         <OutlinedInput
           id="outlined-adornment-last_name"
           value={credentials.last_name}
           onChange={handleChange("last_name")}
           label="Last Name"
+          required={true}
         />
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
@@ -98,10 +112,13 @@ function Signup() {
             </InputAdornment>
           }
           label="Password"
+          required={true}
         />
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-password2">Confirm Password</InputLabel>
+        <InputLabel htmlFor="outlined-adornment-password2">
+          Confirm Password
+        </InputLabel>
         <OutlinedInput
           id="outlined-adornment-password2"
           type={credentials.showPassword ? "text" : "password"}
@@ -120,6 +137,7 @@ function Signup() {
             </InputAdornment>
           }
           label="Confirm Password"
+          required={true}
         />
       </FormControl>
       <Button
@@ -128,13 +146,14 @@ function Signup() {
         size="large"
         fullWidth
         sx={{ m: 1 }}
+        type='submit'
       >
-        Login
+        Register
       </Button>
       <Typography align="left" color="primary" sx={{ m: 1 }}>
         <Link to="/auth/login">Already Has an Account ?</Link>
       </Typography>
-    </div>
+    </form>
   );
 }
 
