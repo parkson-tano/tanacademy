@@ -21,6 +21,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import moment from 'moment'
 import Button from "@mui/material/Button";
 import PlayLessonIcon from "@mui/icons-material/PlayLesson";
+import { Link } from 'react-router-dom'
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -59,7 +60,9 @@ function MyCourse() {
             }
             action={
               <Button variant="contained" color="success">
-                Start Learning
+                <Link to={`/learn/${value.id}/${value.course.slug}`} className="hover:text-slate-100">
+                  Start Learning
+                </Link>
               </Button>
             }
             title={value.course.title}

@@ -12,6 +12,7 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import Navbar from './components/common/Navbar';
 import EnrollmentPage from './pages/EnrollmentPage';
+import LearnPage from './pages/LearnPage';
 
 function App() {
   const params = useParams();
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="auth/signup" element={<SignUpPage />} />
         <Route exact path="mycourse/" element={<EnrollmentPage />} />
         <Route path="*" element={<HomePage />} />
+        <Route exact path="/learn/:id/:slug" element={<LearnPage />} />
       </Routes>
     </Router>
   );
