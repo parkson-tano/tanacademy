@@ -15,7 +15,9 @@ function SideMenu() {
     const { id } = useParams();
     const BaseURL = "http://127.0.0.1:8000/enrollment" + `/${id}`;
     const [courses, setCourses] = useState({})
-    const [url, setUrl]= useState("")
+    const [url, setUrl] = useState(
+      "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600"
+    );
 
     useEffect(() => {
          const fetchData = async () => {
@@ -23,19 +25,12 @@ function SideMenu() {
           .get(BaseURL)
           .then((response) => {
             setCourses(response.data);
-            // console.log(courses);
+            console.log(courses);
           })
          };
            fetchData()
            .catch((error) => console.log(error));
     }, [])
-
-    // const view_url = (url_source) => {
-    //   useEffect(() => {
-    //     setUrl(url_source)
-    //   }, [])
-      
-    // }
 
     const courseSide = courses.course ? courses.course.chapter: 'loading'
     console.log(courseSide)

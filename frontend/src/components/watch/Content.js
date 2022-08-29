@@ -3,15 +3,18 @@ import React from 'react'
 import ReactPlayer from "react-player";
 function Content({urls}) {
   return (
-    <div className="col col-sm-12 col-md-8 px-md-0 mt-sm-3">
+    <div className="col col-sm-12 col-md-8 mt-sm-3">
       <ReactPlayer
         fullwidth
         url={urls}
         style={{
-          width: "100% !important",
+
+          backgroundColor: "black",
+          backgroundImage:
+            `url("https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600")`,
         }}
         controls={true}
-        light = {true}
+        light={true}
         height="95vh"
         width="100%"
       />
