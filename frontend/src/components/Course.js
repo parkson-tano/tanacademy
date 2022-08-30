@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Course(props) {
   return (
-     <div className="col col-md-4 col-sm-12 my-3">
+     <div className="col col-md-4 col-sm-12 p-5">
       <div className="card">
         <img
           className="card-img-top hover:backdrop-blur-sm"

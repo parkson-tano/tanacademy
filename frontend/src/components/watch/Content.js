@@ -1,9 +1,13 @@
+import { Typography } from '@mui/material';
 import { height } from '@mui/system';
 import React from 'react'
 import ReactPlayer from "react-player";
-function Content({urls}) {
+function Content({urls, title}) {
   return (
     <div className="col col-sm-12 col-md-8 mt-sm-3">
+      <Typography>
+        {title}
+      </Typography>
       <ReactPlayer
         fullwidth
         url={urls}

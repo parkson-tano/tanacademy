@@ -26,8 +26,11 @@ function App() {
         <Route exact path="auth/login" element={<LoginPage />} />
         <Route exact path="auth/signup" element={<SignUpPage />} />
         <Route exact path="mycourse/" element={<EnrollmentPage />} />
-        <Route path="*" element={<HomePage />} />
-        <Route exact path="/learn/:id/:slug" element={<LearnPage />} />
+        <Route path="*" element={<HomePage />} /> 
+        <Route exact path="/learn/:id/:slug" element={<LearnPage />} >
+           <Route exact path="/learn/:id/:slug/:lesson_slug" element={<LearnPage />} />
+        </Route>
+       
       </Routes>
     </Router>
   );
