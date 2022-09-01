@@ -1,12 +1,13 @@
 import React from "react";
-import header from "../../assets/header.jpg";
+import header from "../../assets/header2.jpg";
 import Typewriter from "typewriter-effect";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function Header() {
   return (
+
     <div
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(${header})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.3)), url(${header})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center center",
@@ -15,7 +16,7 @@ function Header() {
       }}
     >
       <div
-        className="col col-md-6 col-sm-12 px-5"
+        className="col col-md-6 col-sm-12"
         style={{
           marginTop: "8rem",
         }}
@@ -39,7 +40,8 @@ function Header() {
           </button>
         </div>
       </div>
-    </div>
+    </div>  
+    
   );
 }
 

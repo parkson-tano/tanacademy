@@ -5,13 +5,11 @@ import CoursePage from './CoursePage'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function HomePage() {
   return (
-           <div>
-        <Header />
+        <>
+         <Header />
         <CoursePage />
-    </div>     
-
-
-
+        </>
+       
   )
 }
 

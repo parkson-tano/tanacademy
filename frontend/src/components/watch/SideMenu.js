@@ -37,7 +37,7 @@ function SideMenu() {
     const courseSide = courses.course ? courses.course.chapter: 'loading'
     console.log(courseSide)
     const chap = Object.entries(courseSide).map(([key, value]) => (
-      <div>
+      <>
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -67,18 +67,27 @@ function SideMenu() {
               : "loading......"}
           </AccordionDetails>
         </Accordion>
-      </div>
+      </>
     ));
   return (
-    <>
-    <div className="col col-md-4 col-sm-12 px-5">
-      <Typography variant="h5">
-        {courses.course ? courses.course.title : "Loading"}
-      </Typography>
-      {chap}
+    <div className="row mt-3">
+      <div className="col col-md-4 col-sm-12 c0l-12 px-1">
+        <Typography
+          variant="h5"
+          sx={{
+            fontFamily: "Raleway",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+          }}
+        >
+          {courses.course ? courses.course.title : "Loading"}
+        </Typography>
+        {chap}
+      </div>
+      <div className="col col-md-8 col-sm-12 col-12 px-1">
+        <Content urls={url} title={tit} />
+      </div>
     </div>
-    <Content urls={url} title={tit} />
-    </>
   );
 }
 

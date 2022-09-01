@@ -1,6 +1,7 @@
 from django.db import models
 from curriculum.models import Course
-from django.contrib.auth.models import User
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
 # Create your models here.
 
 class PaymentMethod(models.Model):

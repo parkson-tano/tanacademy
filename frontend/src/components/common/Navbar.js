@@ -38,7 +38,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-     <AppBar position="static" color="transparent">
+    <AppBar position="static" color="transparent">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -89,11 +89,24 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+              <Button variant="contained" size="medium" color="success">
+                <a href="" className="hover:text-white">
+                  Enroll Now
+                </a>
+              </Button>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, display: "block" }}
+              >
+                <a href="#courses" className="hover:text-slate-900">
+                  All Courses
+                </a>
+              </Button>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -113,8 +126,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-              TANACADEMY
-           
+            TANACADEMY
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {/* {pages.map((page) => (
@@ -176,8 +188,7 @@ const ResponsiveAppBar = () => {
           </Box>
         </Toolbar>
       </Container>
-    </AppBar> 
-    
+    </AppBar>
   );
 };
 

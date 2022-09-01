@@ -4,7 +4,7 @@ import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function CoursePage() {
   const [courses, setCourses] = useState("")
-  const BaseURL = "https://tano.pythonanywhere.com/course/";
+  const BaseURL = "https://tano.pythonanywhere.com/course";
 
   useEffect(() => {
     axios
@@ -27,9 +27,11 @@ function CoursePage() {
   ));
 
   return (
-               <div className='row px-5' id="courses">
-      {course}
-    </div> 
+    <div className="container">
+      <div className="row mt-3" id="courses">
+        {course}
+      </div>
+    </div>
   );
 }
 

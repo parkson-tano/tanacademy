@@ -16,7 +16,6 @@ import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import { TrendingUpRounded } from '@material-ui/icons';
 
-
 function Signup() {
   const [credentials, setCredentials] = useState({
     email: "",
@@ -26,6 +25,7 @@ function Signup() {
     first_name: "",
     last_name : "",
   });
+  const [confirm, setConfirm] = ("1")
 
   const handleChange = (prop) => (event) => {
     setCredentials({ ...credentials, [prop]: event.target.value });
@@ -46,6 +46,10 @@ function Signup() {
     event.preventDefault();
   };
 
+    console.log("password:" + credentials.password)
+     console.log("password2:" + credentials.password2)
+     const pass = (credentials.password === credentials.password2)
+     console.log(pass)
   return (
     <form onSubmit={handleSubmit}>
       <FormControl fullWidth sx={{ m: 1 }}>
@@ -139,6 +143,12 @@ function Signup() {
           label="Confirm Password"
           required={true}
         />
+        {
+          !pass ? <FormHelperText error={true} variant='outlined'>
+          Password don't match
+        </FormHelperText>: ""
+        }
+        
       </FormControl>
       <Button
         variant="contained"
@@ -147,6 +157,7 @@ function Signup() {
         fullWidth
         sx={{ m: 1 }}
         type='submit'
+        disabled = {pass ? false:true}
       >
         Register
       </Button>

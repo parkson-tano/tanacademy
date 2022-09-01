@@ -50,8 +50,9 @@ function MyCourse() {
         })
     }, [])
     const enroll = Object.entries(enrollCourse).map(([key, value]) => (
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Card sx={{ maxWidth: 450 }}>
+          
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -59,7 +60,7 @@ function MyCourse() {
               </Avatar>
             }
             action={
-              <Button variant="contained" color="success">
+              <Button variant="contained" color="success" >
                 <Link to={`/learn/${value.id}/${value.course.slug}`} className="hover:text-slate-100">
                   Start Learning
                 </Link>
