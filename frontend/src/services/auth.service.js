@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://127.0.0.1:8000/auth/";
+const API_URL = "https://tano.pythonanywhere.com/auth/";
 const register = (username, email, password) => {
   return axios.post(API_URL + "register", {
     username,

@@ -19,7 +19,7 @@ function ListItem(props) {
 function Chapter() {
     const {id} = useParams()
     const [chapters, setChapters] = useState('')
-    const BaseChapter = "http://127.0.0.1:8000/course/chapter";
+    const BaseChapter = "https://tano.pythonanywhere.com/course/chapter";
 
     useEffect(() => {
       axios

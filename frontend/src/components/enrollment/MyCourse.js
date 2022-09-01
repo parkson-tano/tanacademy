@@ -41,7 +41,7 @@ function MyCourse() {
       };
 
     const [enrollCourse, setEnrollCourse] = useState('')
-    const BaseURL = "http://127.0.0.1:8000/enrollment/mycourse/1/";
+    const BaseURL = "https://tano.pythonanywhere.com/enrollment/mycourse/1/";
     useEffect(() => {
         axios
         .get(BaseURL)

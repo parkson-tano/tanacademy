@@ -11,8 +11,8 @@ function DetailCard() {
         const [course, setCourse] = useState("");
         const [tutors, setTutors] = useState("")
         const [tut, setTut] = useState("")
-        const BaseURL = "http://127.0.0.1:8000/course";
-        const UserURL = "http://127.0.0.1:8000/auth/userprofile";
+        const BaseURL = "https://tano.pythonanywhere.com/course";
+        const UserURL = "https://tano.pythonanywhere.com/auth/userprofile";
 
         const { id } = useParams();
         useEffect(() => {

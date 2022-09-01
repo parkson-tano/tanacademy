@@ -15,7 +15,7 @@ import Login from "../components/auth/Login";
 
 function CourseDetails() {
     const [course, setCourse] = useState("");
-    const BaseURL = "http://127.0.0.1:8000/course";
+    const BaseURL = "https://tano.pythonanywhere.com/course";
     const {id} = useParams();
     useEffect(() => {
       axios

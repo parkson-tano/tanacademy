@@ -19,7 +19,7 @@ const deleteToken = () => {
   localStorage.removeItem("lastLoginTime");
 };
 
-const BASEUrl = "http://localhost:8000/auth/";
+const BASEUrl = "https://tano.pythonanywhere.com/auth/";
 
 export const signupUser = (credentials) => {
   return (dispatch) => {

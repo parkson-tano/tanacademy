@@ -13,7 +13,7 @@ import Content from './Content';
 
 function SideMenu() {
     const { id, slug } = useParams();
-    const BaseURL = "http://127.0.0.1:8000/enrollment" + `/${id}`;
+    const BaseURL = "https://tano.pythonanywhere.com/enrollment" + `/${id}`;
     const [courses, setCourses] = useState({})
     const [url, setUrl] = useState(
       "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600"

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function CoursePage() {
   const [courses, setCourses] = useState("")
-  const BaseURL = "http://127.0.0.1:8000/course/";
+  const BaseURL = "https://tano.pythonanywhere.com/course/";
 
   useEffect(() => {
     axios
