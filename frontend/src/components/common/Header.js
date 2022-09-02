@@ -16,7 +16,7 @@ function Header() {
       }}
     >
       <div
-        className="col col-md-6 col-sm-12"
+        className="col col-md-6 col-sm-12 px-5"
         style={{
           marginTop: "8rem",
         }}

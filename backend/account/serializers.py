@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import UserProfile
-# from django.contrib.auth.models import User
+# from .models import UserProfile
+from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
@@ -18,10 +18,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['username'] = user.username
         return token
 
-class UserProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserProfile
-        fields = "__all__"
+# class UserProfileSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = UserProfile
+#         fields = "__all__"
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

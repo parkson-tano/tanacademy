@@ -8,7 +8,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button } from '@mui/material';
 import MissedVideoCallTwoToneIcon from "@mui/icons-material/MissedVideoCallTwoTone";
-import ReactPlayer from "react-player";
 import Content from './Content';
 
 function SideMenu() {

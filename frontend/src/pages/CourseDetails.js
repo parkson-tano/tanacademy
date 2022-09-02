@@ -34,14 +34,14 @@ function CourseDetails() {
         description={course.description}
         amount={course.amount}
       />
-      <div className="row px-5 py-3 mt-5">
+      <div className="row px-3 py-3 mt-3 container">
         <p className="text-center text-2xl font-bold uppercase p-3">
-          Course Curriculum 
+          Course Curriculum
         </p>
-        <div className="col col-md-8 col-sm-12 mt-5">
+        <div className="col col-lg-4 col-md-12  col-12 mt-5">
           <Curriculum />
         </div>
-        <div className="col col-md-4 col-sm-12 mt-5">
+        <div className="col col-lg-8 col-md-12 col-12 mt-5">
           <DetailCard />
         </div>
       </div>
