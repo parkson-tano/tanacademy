@@ -10,6 +10,7 @@ class User(AbstractUser):
 	email = models.EmailField(_('email address'), unique = True)
 	profile_pic = models.ImageField(upload_to="profile_pic", null=True, blank=True)
 	phone_number = models.CharField(max_length=15, null=True, blank=True)
+	date_created = models.DateTimeField(auto_now_add=True)
 	USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = ['first_name', 'last_name']
 	def __str__(self):
