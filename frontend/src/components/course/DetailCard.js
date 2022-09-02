@@ -12,7 +12,7 @@ function DetailCard() {
         const [tutors, setTutors] = useState("")
         const [tut, setTut] = useState("")
         const BaseURL = "https://tano.pythonanywhere.com/course";
-        const UserURL = "https://tano.pythonanywhere.com/auth/userprofile";
+        const UserURL = "https://tano.pythonanywhere.com/auth/";
 
         const { id } = useParams();
         useEffect(() => {
@@ -34,8 +34,9 @@ function DetailCard() {
         
         const user_id = course.tutor
         const tutor = Object.values(tutors).find((value) => {
-          return value.user === user_id;
+          return value.id === user_id;
         })
+        console.log(tutor)
   return (
     <Card>
       <CardMedia

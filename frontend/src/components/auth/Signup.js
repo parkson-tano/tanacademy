@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -15,6 +15,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import { TrendingUpRounded } from '@material-ui/icons';
+import axios from 'axios';
 
 function Signup() {
   const [credentials, setCredentials] = useState({
@@ -26,7 +27,7 @@ function Signup() {
     last_name : "",
   });
   const [confirm, setConfirm] = ("1")
-
+  const BaseURL = "https://tano.pythonanywhere.com/auth/register/"
   const handleChange = (prop) => (event) => {
     setCredentials({ ...credentials, [prop]: event.target.value });
   };
@@ -50,8 +51,25 @@ function Signup() {
      console.log("password2:" + credentials.password2)
      const pass = (credentials.password === credentials.password2)
      console.log(pass)
+
+  const create_user = (event) => {
+    event.preventDefault();
+    axios
+      .post(BaseURL, {
+        email: credentials.email,
+        password: credentials.password,
+        first_name: credentials.first_name,
+        last_name: credentials.last_name,
+        phone_number: credentials.phone_number,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={create_user}>
       <FormControl fullWidth sx={{ m: 1 }}>
         <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
         <OutlinedInput
