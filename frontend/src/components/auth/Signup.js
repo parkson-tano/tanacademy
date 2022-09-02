@@ -21,7 +21,7 @@ function Signup() {
     email: "",
     password: "",
     password2: "",
-    username: "",
+    phone_number: "",
     first_name: "",
     last_name : "",
   });
@@ -53,16 +53,6 @@ function Signup() {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl fullWidth sx={{ m: 1 }}>
-        <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-username"
-          value={credentials.username}
-          onChange={handleChange("username")}
-          label="Username"
-          required={true}
-        />
-      </FormControl>
-      <FormControl fullWidth sx={{ m: 1 }}>
         <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
         <OutlinedInput
           id="outlined-adornment-email"
@@ -93,6 +83,18 @@ function Signup() {
           value={credentials.last_name}
           onChange={handleChange("last_name")}
           label="Last Name"
+          required={true}
+        />
+      </FormControl>
+      <FormControl fullWidth sx={{ m: 1 }}>
+        <InputLabel htmlFor="outlined-adornment-phone_number">
+          Phone Number
+        </InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-phone_number"
+          value={credentials.phone_number}
+          onChange={handleChange("phone_number")}
+          label="Username"
           required={true}
         />
       </FormControl>
@@ -143,12 +145,13 @@ function Signup() {
           label="Confirm Password"
           required={true}
         />
-        {
-          !pass ? <FormHelperText error={true} variant='outlined'>
-          Password don't match
-        </FormHelperText>: ""
-        }
-        
+        {!pass ? (
+          <FormHelperText error={true} variant="outlined">
+            Password don't match
+          </FormHelperText>
+        ) : (
+          ""
+        )}
       </FormControl>
       <Button
         variant="contained"
@@ -156,8 +159,8 @@ function Signup() {
         size="large"
         fullWidth
         sx={{ m: 1 }}
-        type='submit'
-        disabled = {pass ? false:true}
+        type="submit"
+        disabled={pass ? false : true}
       >
         Register
       </Button>
