@@ -50,6 +50,7 @@ function Signup() {
     console.log("password:" + credentials.password)
      console.log("password2:" + credentials.password2)
      const pass = (credentials.password === credentials.password2)
+     const check =  (credentials.password.length >= 8)
      console.log(pass)
 
   const create_user = (event) => {
@@ -138,6 +139,13 @@ function Signup() {
           label="Password"
           required={true}
         />
+        {!check ? (
+          <FormHelperText error={true} variant="outlined">
+            Password is too Short
+          </FormHelperText>
+        ) : (
+          ""
+        )}
       </FormControl>
       <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password2">
@@ -178,7 +186,7 @@ function Signup() {
         fullWidth
         sx={{ m: 1 }}
         type="submit"
-        disabled={pass ? false : true}
+        disabled={pass && check ? false : true}
       >
         Register
       </Button>
