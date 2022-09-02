@@ -12,7 +12,7 @@ class UserAdmin(BaseUserAdmin):
 		(_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
 										'groups', 'user_permissions')}),
 		(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-			(_('user_info'), {'fields': ('native_name', 'phone_no')}),
+			(_('user_info'), {'fields': ('profile_pic', 'phone_number')}),
 	)
 	add_fieldsets = (
 		(None, {
@@ -20,7 +20,7 @@ class UserAdmin(BaseUserAdmin):
 			'fields': ('email', 'password1', 'password2'),
 		}),
 	)
-	list_display = ['email', 'first_name', 'last_name', 'is_staff', "native_name", "phone_no"]
+	list_display = ['email', 'first_name', 'last_name', 'is_staff', "phone_number"]
 	search_fields = ('email', 'first_name', 'last_name')
 	ordering = ('email', )
 admin.site.register(User, UserAdmin)
