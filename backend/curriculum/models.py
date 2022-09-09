@@ -42,14 +42,14 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
 
-        img = Image.open(self.cover_image.path)
-        if img.height > 200 or img.width > 200:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.cover_image.path)
+    #     img = Image.open(self.cover_image.path)
+    #     if img.height > 200 or img.width > 200:
+    #         output_size = (300, 300)
+    #         img.thumbnail(output_size)
+    #         img.save(self.cover_image.path)
 
 class Chapter(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='chapter')
@@ -75,14 +75,14 @@ class Lesson(models.Model):
         ordering = ['lesson_number']
     def __str__(self):
         return self.title
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
-        if img.height > 200 or img.width > 200:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    #     img = Image.open(self.image.path)
+    #     if img.height > 200 or img.width > 200:
+    #         output_size = (300, 300)
+    #         img.thumbnail(output_size)
+    #         img.save(self.image.path)
     
 class Curriculum(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='curriculum')
