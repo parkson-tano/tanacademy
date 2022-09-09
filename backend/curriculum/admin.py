@@ -21,3 +21,13 @@ class CurriculumAdmin(admin.ModelAdmin):
     list_display = ('course',)
 
 admin.site.register(Curriculum, CurriculumAdmin)
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+
+admin.site.register(Category, CategoryAdmin)
+
+class SubCategoryAdmin(admin.ModelAdmin):
+    list_display = ('title','category')
+
+admin.site.register(SubCategory, SubCategoryAdmin)

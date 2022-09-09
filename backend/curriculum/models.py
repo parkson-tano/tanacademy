@@ -10,6 +10,21 @@ STATUS = (
     ('Paid', 'paid')
 )
 
+class Category(models.Model):
+    title = models.CharField(max_length=256)
+    slug = AutoSlugField(populate_from='title')
+
+    def __str__(self):
+        return self.title
+
+class SubCategory(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    title = models.CharField(max_length=256)
+    slug = AutoSlugField(populate_from='title')
+
+    def __str__(self):
+        return f'{self.title} for {self.category}'
+
 class Course(models.Model):
     tutor = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
@@ -21,6 +36,7 @@ class Course(models.Model):
     cover_image = models.FileField(upload_to = "course_image", null=True, blank=True)
     slug = AutoSlugField(populate_from = "title", unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
+    enrol = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
