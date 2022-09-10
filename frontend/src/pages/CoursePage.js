@@ -23,12 +23,15 @@ function CoursePage() {
       amount = {value.amount}
       id = {value.id}
       slug = {value.slug}
+      level = {value.level}
+      duration = {0}
+      enrol = {value.enrol}
     />
   ));
 
   return (
     <div className="container">
-      <div className="row mt-3" id="courses">
+      <div className="row mt-3 px-md-5" id="courses">
         {course}
       </div>
     </div>
