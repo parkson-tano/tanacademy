@@ -41,14 +41,15 @@ function DetailCard() {
     <Card>
       <CardMedia
         component="img"
-        height="140"
+        style={{
+          height: 200,
+        }}
         image={course.cover_image}
         alt={course.title}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           About this Course
-          
         </Typography>
         <hr
           style={{

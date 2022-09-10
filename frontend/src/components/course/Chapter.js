@@ -20,6 +20,17 @@ function Chapter() {
     const {id} = useParams()
     const [chapters, setChapters] = useState('')
     const BaseChapter = "https://tano.pythonanywhere.com/course/chapter";
+    const [courseDescription, setCourseDescription] = useState("")
+    const BaseCourse = `https://tano.pythonanywhere.com/course/${id}`;
+
+  useEffect(() => {
+    axios
+      .get(BaseCourse)
+      .then((response) => {
+        setCourseDescription(response.data.description);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
     useEffect(() => {
       axios
@@ -84,7 +95,14 @@ function Chapter() {
         
   return (
     <div>
-        {chapter}
+      <p className="text-justify text-2xl font-bold uppercase mx-3">
+        About this Course
+      </p>
+      <p className="text-justify text-xl mx-3 mb-5">{courseDescription}</p>
+      <p className="text-center text-2xl font-bold uppercase mx-3">
+       Course outline
+      </p>
+      {chapter}
     </div>
   );
 }

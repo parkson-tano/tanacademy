@@ -16,22 +16,21 @@ function CourseHeader(props) {
       }}
     >
       <div
-        className="col col-md-6 col-sm-12"
+        className="col col-md-8 col-sm-12"
         style={{
           marginTop: "8rem",
         }}
       >
         <p className="text-white font-extrabold text-5xl p-5">{props.title}</p>
-        <p className="text-white text-2xl px-5">{props.description}</p>
         <div className="p-5">
           <Button
             variant="contained"
             size="large"
-            color="success"
+            color="primary"
             endIcon={<SendIcon />}
           >
             <a href="" className="hover:text-white">
-              Pay {props.amount} XAF Now
+              Start Learning
             </a>
           </Button>
         </div>

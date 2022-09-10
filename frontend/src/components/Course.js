@@ -77,7 +77,7 @@ function Course(props) {
                   flexWrap: "wrap",
                 }}
               >
-                <span>{props.amount}</span> XAF
+                <span className="text-danger">{props.amount} XAF</span>
               </div>
             </Typography>
             <Typography
@@ -91,7 +91,7 @@ function Course(props) {
                 alignItems: "center",
                 flexWrap: "wrap",
               }}
-              color="blue"
+            
             >
               Enroll Now
               <ArrowForwardIosIcon sx={{ fontSize: "medium" }} />
