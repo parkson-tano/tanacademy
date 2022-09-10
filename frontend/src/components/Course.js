@@ -9,7 +9,7 @@ import NetworkCellIcon from "@mui/icons-material/NetworkCell";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 function Course(props) {
   return (
-    <div className="col-12 col-md-4  px-md-3 mt-2">
+    <div className="col-12 col-md-4  px-md-2 mt-2">
       <div className="card hover:py-5">
         <img
           className="hover:backdrop-blur-sm"
@@ -35,7 +35,7 @@ function Course(props) {
                   flexWrap: "wrap",
                 }}
               >
-                <NetworkCellIcon sx={{ fontSize: "large" }} />
+                <NetworkCellIcon sx={{ fontSize: "large", marginRight:1 }} />
                 <span>{props.level}</span>
               </div>
             </Typography>
@@ -47,16 +47,16 @@ function Course(props) {
                   flexWrap: "wrap",
                 }}
               >
-                <AccessTimeIcon sx={{ fontSize: "large" }} />
+                <AccessTimeIcon sx={{ fontSize: "large",  marginRight:1 }} />
                 <span>{props.duration} hrs</span>
               </div>
             </Typography>
           </div>
 
-          <h5 className="card-title text-xl font-bold" align="left">
+          <h5 className="card-title text-xl font-bold mt-3" align="left">
             {props.title}
           </h5>
-          <h5 className="mt-3" align="right">
+          <h5 className="mt-3 mb-3" align="right">
             Already Enrolled: {props.enrol}
           </h5>
           <hr style={{ border: "1px solid black" }} />
