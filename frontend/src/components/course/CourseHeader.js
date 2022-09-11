@@ -4,18 +4,21 @@ import Button from "@mui/material/Button";
 import {useParam} from 'react-router-dom'
 import axios from 'axios'
 function CourseHeader(props) {
-  const BaseURL = 'https://tano.pythonanywhere.com/enrollment/'
+  const BaseURL = 'https://tano.pythonanywhere.com/enrollment/c'
 
   const create_enroll = () => {
-      axios.post(BaseURL, {
-        price: props.amount,
-        phone: '674128574',
-        complete: false,
-        paid: false,
-        date: '2000-01-01',
-        user: 1,
-        payment_method: 'MTN MOMO',
-      });
+      axios
+        .post(BaseURL, {
+          price: props.amount,
+          phone: "674128574",
+          complete: false,
+          paid: false,
+          course: props.course_id,
+          user: 1,
+          payment_method: 1,
+        })
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error));
     
   }
 
@@ -44,6 +47,7 @@ function CourseHeader(props) {
             size="large"
             color="primary"
             endIcon={<SendIcon />}
+            onClick={create_enroll}
           >
               Start Learning
    

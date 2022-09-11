@@ -26,6 +26,8 @@ function CourseDetails() {
         .catch((error) => alert(error));
     }, []);
 
+    console.log(course.id)
+
   return (
     <div>
       <CourseHeader
@@ -33,6 +35,7 @@ function CourseDetails() {
         title={course.title}
         description={course.description}
         amount={course.amount}
+        course_id={course.id}
       />
       <div className="row px-3 mt-3 container">
         <p className="text-center text-2xl font-bold uppercase p-3">

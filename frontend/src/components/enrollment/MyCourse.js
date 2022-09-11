@@ -46,11 +46,12 @@ function MyCourse() {
         axios
         .get(BaseURL)
         .then((response) => {
-            setEnrollCourse(response.data)
+          setEnrollCourse(response.data)
         })
     }, [])
     const enroll = Object.entries(enrollCourse).map(([key, value]) => (
-      <Grid item xs={12} sm={6}>
+      (value.paid) ?
+       <Grid item xs={12} sm={6}>
         <Card sx={{ maxWidth: 450 }}>
           
           <CardHeader
@@ -81,7 +82,9 @@ function MyCourse() {
             </Typography>
           </CardContent>
         </Card>
-      </Grid>
+      </Grid> 
+      : null
+      
     ));
   return (
     <div>
