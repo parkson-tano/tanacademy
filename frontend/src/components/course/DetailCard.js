@@ -36,7 +36,8 @@ function DetailCard() {
         const tutor = Object.values(tutors).find((value) => {
           return value.id === user_id;
         })
-        console.log(tutor)
+        let len = course ? course.chapter:'......';
+        console.log(len.length);
   return (
     <Card>
       <CardMedia
@@ -68,7 +69,7 @@ function DetailCard() {
           Tutor: {tutor ? tutor.first_name : ""} {tutor ? tutor.last_name : ""}
         </Typography>
         <Typography variant="h6" mt={2} color="dark">
-          Number of Lesson:
+          Number of Chapter: {course ? course.chapter.length : "...."}
         </Typography>
         <Typography variant="h6" mt={2} color="dark">
           Duration: 6 Hours

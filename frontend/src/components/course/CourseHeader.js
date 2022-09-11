@@ -2,7 +2,25 @@ import React from 'react'
 import SendIcon from "@mui/icons-material/Send";
 import Button from "@mui/material/Button";
 import {useParam} from 'react-router-dom'
+import axios from 'axios'
 function CourseHeader(props) {
+  const BaseURL = 'https://tano.pythonanywhere.com/enrollment/'
+
+  const create_enroll = () => {
+    useEffect(() => {
+      axios.post(BaseURL, {
+        price: props.amount,
+        phone: '674128574',
+        complete: false,
+        paid: false,
+        date: '2000-01-01',
+        user: 1,
+        payment_method: 'MTN MOMO',
+      });
+    }, [])
+    
+  }
+
   return (
   
     <div
@@ -29,9 +47,8 @@ function CourseHeader(props) {
             color="primary"
             endIcon={<SendIcon />}
           >
-            <a href="" className="hover:text-white">
               Start Learning
-            </a>
+   
           </Button>
         </div>
       </div>
