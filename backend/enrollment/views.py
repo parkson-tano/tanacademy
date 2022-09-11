@@ -31,6 +31,14 @@ class EnrollmentApiView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
 
+class CEnrollmentCreateViewAPI(generics.ListCreateAPIView):
+    queryset = Enrollment.objects.all()
+    serializer_class = CreateEnrollmentSerializer
+
+class CEnrollmentApiView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Enrollment.objects.all()
+    serializer_class = CreateEnrollmentSerializer
+
 class UserEnrollment(generics.ListAPIView):
     serializer_class = EnrollmentSerializer
     def get_queryset(self):

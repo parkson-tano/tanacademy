@@ -4,7 +4,7 @@ from curriculum.serializers import CourseSerializer
 from .models import *
 
 class EnrollmentSerializer(serializers.ModelSerializer):
-    course = CourseSerializer(many=True, read_only=True)
+    course = CourseSerializer(read_only=True)
     class Meta:
         model = Enrollment
         fields = "__all__"
@@ -19,3 +19,7 @@ class PaymentMethodSerializer(serializers.ModelSerializer):
         model = PaymentMethod
         fields = "__all__"
 
+class CreateEnrollmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Enrollment
+        fields = "__all__"
