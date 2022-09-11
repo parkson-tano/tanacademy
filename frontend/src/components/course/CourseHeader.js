@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import SendIcon from "@mui/icons-material/Send";
 import Button from "@mui/material/Button";
 import {useParam} from 'react-router-dom'
@@ -7,7 +7,6 @@ function CourseHeader(props) {
   const BaseURL = 'https://tano.pythonanywhere.com/enrollment/'
 
   const create_enroll = () => {
-    useEffect(() => {
       axios.post(BaseURL, {
         price: props.amount,
         phone: '674128574',
@@ -17,7 +16,6 @@ function CourseHeader(props) {
         user: 1,
         payment_method: 'MTN MOMO',
       });
-    }, [])
     
   }
 
