@@ -19,7 +19,7 @@ class Enrollment(models.Model):
     payment_method = models.ForeignKey(PaymentMethod, null=True, on_delete=models.SET_NULL)
     complete = models.BooleanField(default=True)
     paid = models.BooleanField(default=False)
-    date = models.DateTimeField()
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.user} enroll {self.course}'
